@@ -10,12 +10,27 @@ import UIKit
 
 class NotasViewController: UIViewController {
 
+	@IBOutlet weak var tableView: UITableView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+		addRefreshControl()
 	}
-
-
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		#warning("pegar as notas do BD e recarregar a tablw view")
+	}
+	
+	@IBAction func unwindToViewNotes(_ unwindSegue: UIStoryboardSegue) {
+		let sourceViewController = unwindSegue.source
+	}
+	
+	func addRefreshControl(){
+		let refreshControl = UIRefreshControl()
+		tableView.refreshControl = refreshControl
+	}
 }
 
 extension NotasViewController: UITableViewDelegate, UITableViewDataSource{
