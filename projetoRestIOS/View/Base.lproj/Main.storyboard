@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IPE-cM-mzA">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notas-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="NotasViewController" customModule="projetoRestIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EQm-lv-9lI">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="1qA-wA-Gd9"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Pse-Fi-qhK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EQm-lv-9lI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AQY-Lb-5Gz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EQm-lv-9lI" secondAttribute="bottom" id="FeK-CD-6qf"/>
+                            <constraint firstItem="EQm-lv-9lI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cmX-lz-Yli"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EQm-lv-9lI" secondAttribute="trailing" id="sJ5-x3-VOb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Notas" image="square.and.pencil" catalog="system" id="FrP-h6-L13"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950.72463768115949" y="91.741071428571431"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ldb-P9-Nii">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="IPE-cM-mzA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XLw-dD-ewY">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="BVk-H6-L4a"/>
+                        <segue destination="9jX-Y7-7E5" kind="relationship" relationship="viewControllers" id="17g-jw-L4x"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nnz-Yb-StV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.579710144927539" y="91.741071428571431"/>
+        </scene>
+        <!--Adicionar-->
+        <scene sceneID="pM6-ka-kR5">
+            <objects>
+                <viewController id="9jX-Y7-7E5" customClass="AdicionarNotaViewController" customModule="projetoRestIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OI3-dw-ddb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-Gb-YY6">
+                                <rect key="frame" x="40" y="84" width="334" height="689"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXF-lQ-myJ">
+                                        <rect key="frame" x="133" y="0.0" width="68" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DmA-RW-7yx">
+                                        <rect key="frame" x="0.0" y="41.5" width="334" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conteúdo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RL-9t-inp">
+                                        <rect key="frame" x="107.5" y="83.5" width="119.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J0J-16-sr6">
+                                        <rect key="frame" x="0.0" y="125" width="334" height="510"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQI-yt-kLJ">
+                                        <rect key="frame" x="110" y="643" width="114" height="46"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <state key="normal" title="Adicionar"/>
+                                        <connections>
+                                            <action selector="adicionarTapped:" destination="9jX-Y7-7E5" eventType="touchUpInside" id="KbY-PK-8oM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="334" id="2dx-Sc-bd5"/>
+                                    <constraint firstAttribute="width" secondItem="J0J-16-sr6" secondAttribute="width" id="Bwm-qc-X3C"/>
+                                    <constraint firstItem="DmA-RW-7yx" firstAttribute="width" secondItem="J0J-16-sr6" secondAttribute="width" id="KPo-Fv-JcU"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vaU-Gb-YY6" firstAttribute="leading" secondItem="VZt-8N-CyK" secondAttribute="leading" constant="40" id="5bF-6k-BSM"/>
+                            <constraint firstItem="VZt-8N-CyK" firstAttribute="trailing" secondItem="vaU-Gb-YY6" secondAttribute="trailing" constant="40" id="Cnl-wt-LVw"/>
+                            <constraint firstItem="VZt-8N-CyK" firstAttribute="bottom" secondItem="vaU-Gb-YY6" secondAttribute="bottom" constant="40" id="IkM-WP-aH2"/>
+                            <constraint firstItem="vaU-Gb-YY6" firstAttribute="top" secondItem="VZt-8N-CyK" secondAttribute="top" constant="40" id="e60-IG-0v9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VZt-8N-CyK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Adicionar" image="plus" catalog="system" id="xWK-9O-OLq"/>
+                    <connections>
+                        <outlet property="contentTextField" destination="J0J-16-sr6" id="jn0-hf-bQm"/>
+                        <outlet property="titleTextField" destination="DmA-RW-7yx" id="QvY-uH-7Jy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BnL-zi-fWU" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="951" y="814"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="64" height="56"/>
+        <image name="square.and.pencil" catalog="system" width="64" height="58"/>
+    </resources>
+</document>
