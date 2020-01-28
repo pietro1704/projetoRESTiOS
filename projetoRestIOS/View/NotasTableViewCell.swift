@@ -9,9 +9,7 @@
 import UIKit
 
 class NotasTableViewCell: UITableViewCell {
-	
-	var note:Attributes?
-	
+		
 	var apiHandler = APIHandler()
 	
 	@IBOutlet weak var titleLabel: UILabel!
@@ -19,8 +17,7 @@ class NotasTableViewCell: UITableViewCell {
 	
     override func awakeFromNib() {
         super.awakeFromNib()
-		titleLabel.text = note?.title
-		dateLabel.text = apiHandler.formatDate(note)
+		
 	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {

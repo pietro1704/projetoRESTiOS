@@ -29,7 +29,12 @@ class NotasViewController: UIViewController {
 		apiHandler.getAllNotes { (jsons) in
 			self.jsonObjects = jsons
 			self.notes = jsons.map{$0.attributes}
-			self.tableView.reloadData()
+			print(self.notes)
+			
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+			}
+			
 		}
 	}
 	
@@ -54,12 +59,17 @@ class NotasViewController: UIViewController {
 extension NotasViewController: UITableViewDelegate, UITableViewDataSource{
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
+		return notes?.count ?? 0
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NotasTableViewCell
+		
+		let note = notes![indexPath.row]
+		cell.titleLabel.text = note.title
+		cell.dateLabel.text = apiHandler.formatDate(note)
+		
 		return cell
 	}
 	
