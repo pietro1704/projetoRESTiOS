@@ -19,6 +19,40 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EQm-lv-9lI">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteCell" rowHeight="200" id="MtV-dS-zGc" customClass="NotasTableViewCell" customModule="projetoRestIOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MtV-dS-zGc" id="Qpl-HF-slS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WM8-Qr-KFH">
+                                                    <rect key="frame" x="10" y="89.5" width="34" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lm3-ja-V7f">
+                                                    <rect key="frame" x="345.5" y="86.5" width="48" height="27"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WM8-Qr-KFH" firstAttribute="leading" secondItem="Qpl-HF-slS" secondAttribute="leading" constant="10" id="cIS-xV-9fw"/>
+                                                <constraint firstAttribute="trailing" secondItem="lm3-ja-V7f" secondAttribute="trailing" constant="20.5" id="fCA-zB-cOI"/>
+                                                <constraint firstItem="WM8-Qr-KFH" firstAttribute="centerY" secondItem="Qpl-HF-slS" secondAttribute="centerY" id="gZw-IM-ODZ"/>
+                                                <constraint firstItem="lm3-ja-V7f" firstAttribute="centerY" secondItem="Qpl-HF-slS" secondAttribute="centerY" id="mT9-n2-jbk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="WM8-Qr-KFH" id="EtC-Rm-X92"/>
+                                            <outlet property="titleLabel" destination="lm3-ja-V7f" id="SZ0-zi-VAs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="1qA-wA-Gd9"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Pse-Fi-qhK"/>

@@ -20,7 +20,7 @@ struct Attributes:Codable {
 	var title: String
 	var content: String
 	var date: Date?
-	//var dateSwift:Date?
+//	var dateSwift:String?
 }
 
 struct Link: Codable {

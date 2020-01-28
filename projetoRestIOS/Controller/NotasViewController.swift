@@ -29,20 +29,8 @@ class NotasViewController: UIViewController {
 		apiHandler.getAllNotes { (jsons) in
 			self.jsonObjects = jsons
 			self.notes = jsons.map{$0.attributes}
-			
-			for note in self.notes!{
-				print(note.date)
-				
-				let dateFormatter = DateFormatter()
-				dateFormatter.dateFormat = "HH:mm dd/MM/yyyy"
-				dateFormatter.timeZone = .current
-				
-				let date = dateFormatter.string(from: note.date!)
-				
-				print(date)
-			}
+			self.tableView.reloadData()
 		}
-		
 	}
 	
 	
@@ -53,7 +41,13 @@ class NotasViewController: UIViewController {
 	
 	func addRefreshControl(){
 		let refreshControl = UIRefreshControl()
+		
+		refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
 		tableView.refreshControl = refreshControl
+	}
+	
+	@objc func refreshData(_ sender:Any){
+		tableView.reloadData()
 	}
 }
 
@@ -64,7 +58,11 @@ extension NotasViewController: UITableViewDelegate, UITableViewDataSource{
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return UITableViewCell()
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
+		return cell
 	}
+	
+	
 }
 

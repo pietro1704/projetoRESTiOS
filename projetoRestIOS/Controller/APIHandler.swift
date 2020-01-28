@@ -10,6 +10,21 @@ import Foundation
 
 class APIHandler{
 	
+	func formatDate(_ note: Attributes?)->String? {
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "HH:mm:ss dd/MM/yyyy"
+		dateFormatter.timeZone = .current
+		
+		guard note != nil else{
+			print("note ainda nil")
+			return nil
+		}
+		
+		let date = dateFormatter.string(from: (note?.date)!)
+		
+		return date
+	}
+		
 	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void) {
 		guard let url = URL(string: "https://projetojs.herokuapp.com/") else{return}
 		
