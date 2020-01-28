@@ -13,6 +13,8 @@ class NotasViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
 	let apiHandler = APIHandler()
+	var jsonObjects:[JsonObject]?
+	var notes:[Attributes]?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -24,7 +26,11 @@ class NotasViewController: UIViewController {
 		
 		#warning("pegar as notas do BD e recarregar a tablw view")
 		
-		apiHandler.getAllNotes()
+		apiHandler.getAllNotes { (jsons) in
+			self.jsonObjects = jsons
+			self.notes = jsons.map{$0.attributes}
+			print(self.notes)
+		}
 	}
 	
 	@IBAction func unwindToViewNotes(_ unwindSegue: UIStoryboardSegue) {

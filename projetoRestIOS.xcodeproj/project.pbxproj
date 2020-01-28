@@ -17,7 +17,7 @@
 		8D4094FB23E051C70036D24F /* projetoRestIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4094FA23E051C70036D24F /* projetoRestIOSTests.swift */; };
 		8D40950623E053070036D24F /* NotasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950523E053070036D24F /* NotasTableViewCell.swift */; };
 		8D40950823E054A70036D24F /* AdicionarNotaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */; };
-		8D40950A23E0561B0036D24F /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950923E0561B0036D24F /* NoteModel.swift */; };
+		8D40950A23E0561B0036D24F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950923E0561B0036D24F /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		8D4094FC23E051C70036D24F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D40950523E053070036D24F /* NotasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasTableViewCell.swift; sourceTree = "<group>"; };
 		8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarNotaViewController.swift; sourceTree = "<group>"; };
-		8D40950923E0561B0036D24F /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		8D40950923E0561B0036D24F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 		8D40950B23E056480036D24F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8D40950923E0561B0036D24F /* NoteModel.swift */,
+				8D40950923E0561B0036D24F /* Note.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,8 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				8D4094E723E051C40036D24F /* NotasViewController.swift */,
-				8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */,
 				8D3B39DD23E0580800158315 /* APIHandler.swift */,
+				8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 			files = (
 				8D3B39DE23E0580800158315 /* APIHandler.swift in Sources */,
 				8D4094E823E051C40036D24F /* NotasViewController.swift in Sources */,
-				8D40950A23E0561B0036D24F /* NoteModel.swift in Sources */,
+				8D40950A23E0561B0036D24F /* Note.swift in Sources */,
 				8D40950823E054A70036D24F /* AdicionarNotaViewController.swift in Sources */,
 				8D4094E423E051C40036D24F /* AppDelegate.swift in Sources */,
 				8D4094E623E051C40036D24F /* SceneDelegate.swift in Sources */,

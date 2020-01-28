@@ -10,7 +10,7 @@ import Foundation
 
 class APIHandler{
 	
-	func getAllNotes() {
+	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void) {
 		guard let url = URL(string: "https://projetojs.herokuapp.com/") else{return}
 		
 		
@@ -21,11 +21,11 @@ class APIHandler{
 			}
 			
 			if let data = data{
-				print(data)
+				print("DATA = ",data)
 				do{
-					let note = try JSONDecoder().decode(NoteModel.self, from: data)
-					print(note)
+					let notes = try JSONDecoder().decode([JsonObject].self, from: data)
 					
+					completion(notes)
 					
 				}catch{
 					print(error)
@@ -34,9 +34,8 @@ class APIHandler{
 		}.resume()
 	}
 	
-	func postNote(note: NoteModel) {
-		let dateString = note.date?.description
-		let parameters = ["title": note.title, "content": note.content, "date": dateString]
+	func postNote(note: Attributes) {
+		let parameters = ["title": note.title, "content": note.content, "date": note.date]
 		
 		guard let url = URL(string: "https://projetojs.herokuapp.com/") else{return}
 		
