@@ -26,11 +26,22 @@ class AdicionarNotaViewController: UIViewController {
 	
 	@IBAction func adicionarTapped(_ sender: Any) {
 		guard titleTextField.text != "", contentTextField.text != "" else{
-			print("algum texto vazio")
+			showNilTextAlertController()
 			return
 		}
 		let note = NoteModel(title: titleTextField.text!, content: contentTextField.text!, date: Date())
 		apiHandler.createNote(note: note)
+		
+		
+		
+		performSegue(withIdentifier: "unwindToViewNotesSegue", sender: nil)
+	}
+	
+	func showNilTextAlertController(){
+		let alert = UIAlertController(title: "Algo Vazio", message: "por favor preencha todos os campos", preferredStyle: .alert)
+		let OK = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+		alert.addAction(OK)
+		present(alert, animated: true)
 	}
 }
 

@@ -12,6 +12,8 @@ class NotasViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
 	
+	let apiHandler = APIHandler()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		addRefreshControl()
@@ -21,6 +23,10 @@ class NotasViewController: UIViewController {
 		super.viewWillAppear(animated)
 		
 		#warning("pegar as notas do BD e recarregar a tablw view")
+		
+		apiHandler.getAllNotes { (note, error) in
+			self.notes = notes
+		}
 	}
 	
 	@IBAction func unwindToViewNotes(_ unwindSegue: UIStoryboardSegue) {

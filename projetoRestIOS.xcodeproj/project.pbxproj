@@ -18,6 +18,7 @@
 		8D40950623E053070036D24F /* NotasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950523E053070036D24F /* NotasTableViewCell.swift */; };
 		8D40950823E054A70036D24F /* AdicionarNotaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */; };
 		8D40950A23E0561B0036D24F /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950923E0561B0036D24F /* NoteModel.swift */; };
+		8D917ECA23E062C500BC4E55 /* NoteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D917EC923E062C500BC4E55 /* NoteRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		8D40950523E053070036D24F /* NotasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasTableViewCell.swift; sourceTree = "<group>"; };
 		8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarNotaViewController.swift; sourceTree = "<group>"; };
 		8D40950923E0561B0036D24F /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		8D917EC923E062C500BC4E55 /* NoteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				8D40950923E0561B0036D24F /* NoteModel.swift */,
+				8D917EC923E062C500BC4E55 /* NoteRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				8D3B39DE23E0580800158315 /* APIHandler.swift in Sources */,
 				8D4094E823E051C40036D24F /* NotasViewController.swift in Sources */,
 				8D40950A23E0561B0036D24F /* NoteModel.swift in Sources */,
+				8D917ECA23E062C500BC4E55 /* NoteRequest.swift in Sources */,
 				8D40950823E054A70036D24F /* AdicionarNotaViewController.swift in Sources */,
 				8D4094E423E051C40036D24F /* AppDelegate.swift in Sources */,
 				8D4094E623E051C40036D24F /* SceneDelegate.swift in Sources */,

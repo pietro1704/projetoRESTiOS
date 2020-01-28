@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Notas View Controller-->
+        <!--Minhas Notas-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="NotasViewController" customModule="projetoRestIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JQx-NK-Jma">
+                    <navigationItem key="navigationItem" title="Minhas Notas" id="JQx-NK-Jma">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="wUL-q6-de1">
                             <connections>
                                 <segue destination="9jX-Y7-7E5" kind="presentation" id="RgK-Mk-yI5"/>
@@ -88,7 +88,6 @@
                                         <state key="normal" title="Adicionar"/>
                                         <connections>
                                             <action selector="adicionarTapped:" destination="9jX-Y7-7E5" eventType="touchUpInside" id="KbY-PK-8oM"/>
-                                            <segue destination="3Pz-2m-ptR" kind="unwind" unwindAction="unwindToViewNotes:" id="meN-nT-fLt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -112,6 +111,7 @@
                     <connections>
                         <outlet property="contentTextField" destination="J0J-16-sr6" id="jn0-hf-bQm"/>
                         <outlet property="titleTextField" destination="DmA-RW-7yx" id="QvY-uH-7Jy"/>
+                        <segue destination="3Pz-2m-ptR" kind="unwind" identifier="unwindToViewNotesSegue" unwindAction="unwindToViewNotes:" id="9PW-q7-XaW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BnL-zi-fWU" sceneMemberID="firstResponder"/>

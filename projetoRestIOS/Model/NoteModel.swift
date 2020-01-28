@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct NoteModel{
-	let title: String
-	let content: String
-	let date: Date?
+struct NoteModel: Decodable{
+	var title: String
+	var content: String
+	var date: Date?
 }
+
