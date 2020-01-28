@@ -52,7 +52,7 @@ class APIHandler{
 	}
 	
 	func postNote(note: Attributes) {
-		let parameters = ["title": note.title, "content": note.content, "date": note.date] as [String : Any]
+		let parameters = ["title": note.title, "content": note.content]
 		
 		guard let url = URL(string: "https://projetojs.herokuapp.com/") else{return}
 		

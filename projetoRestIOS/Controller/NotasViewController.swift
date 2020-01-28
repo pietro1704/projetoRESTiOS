@@ -21,21 +21,23 @@ class NotasViewController: UIViewController {
 		addRefreshControl()
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		
-		#warning("pegar as notas do BD e recarregar a tablw view")
-		
+	fileprivate func updateTableView() {
 		apiHandler.getAllNotes { (jsons) in
 			self.jsonObjects = jsons
 			self.notes = jsons.map{$0.attributes}
-			print(self.notes)
-			
 			DispatchQueue.main.async {
 				self.tableView.reloadData()
 			}
 			
 		}
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		#warning("pegar as notas do BD e recarregar a tablw view")
+		
+		updateTableView()
 	}
 	
 	
@@ -52,7 +54,9 @@ class NotasViewController: UIViewController {
 	}
 	
 	@objc func refreshData(_ sender:Any){
-		tableView.reloadData()
+		updateTableView()
+//		tableView.reloadData()
+		tableView.refreshControl?.endRefreshing()
 	}
 }
 
