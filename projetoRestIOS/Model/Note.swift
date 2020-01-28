@@ -19,7 +19,8 @@ struct JsonObject: Codable {
 struct Attributes:Codable {
 	var title: String
 	var content: String
-	var date: String?
+	var date: Date?
+	//var dateSwift:Date?
 }
 
 struct Link: Codable {

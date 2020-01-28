@@ -18,6 +18,7 @@
 		8D40950623E053070036D24F /* NotasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950523E053070036D24F /* NotasTableViewCell.swift */; };
 		8D40950823E054A70036D24F /* AdicionarNotaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */; };
 		8D40950A23E0561B0036D24F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950923E0561B0036D24F /* Note.swift */; };
+		8D917ECD23E0A3B800BC4E55 /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D917ECC23E0A3B800BC4E55 /* DateFormatterExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		8D40950523E053070036D24F /* NotasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasTableViewCell.swift; sourceTree = "<group>"; };
 		8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarNotaViewController.swift; sourceTree = "<group>"; };
 		8D40950923E0561B0036D24F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		8D917ECC23E0A3B800BC4E55 /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				8D4094EC23E051C70036D24F /* Assets.xcassets */,
 				8D4094EE23E051C70036D24F /* LaunchScreen.storyboard */,
 				8D4094F123E051C70036D24F /* Info.plist */,
+				8D917ECB23E0A39A00BC4E55 /* Extensions */,
 			);
 			path = projetoRestIOS;
 			sourceTree = "<group>";
@@ -133,6 +136,14 @@
 				8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		8D917ECB23E0A39A00BC4E55 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8D917ECC23E0A3B800BC4E55 /* DateFormatterExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 				8D40950823E054A70036D24F /* AdicionarNotaViewController.swift in Sources */,
 				8D4094E423E051C40036D24F /* AppDelegate.swift in Sources */,
 				8D4094E623E051C40036D24F /* SceneDelegate.swift in Sources */,
+				8D917ECD23E0A3B800BC4E55 /* DateFormatterExtension.swift in Sources */,
 				8D40950623E053070036D24F /* NotasTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

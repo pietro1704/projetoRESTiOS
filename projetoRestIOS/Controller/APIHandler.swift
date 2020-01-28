@@ -23,7 +23,9 @@ class APIHandler{
 			if let data = data{
 				print("DATA = ",data)
 				do{
-					let notes = try JSONDecoder().decode([JsonObject].self, from: data)
+					let jsonDecoder = JSONDecoder()
+					jsonDecoder.dateDecodingStrategy = .formatted(.fullISO8601)
+					let notes = try jsonDecoder.decode([JsonObject].self, from: data)
 					
 					completion(notes)
 					
@@ -35,7 +37,7 @@ class APIHandler{
 	}
 	
 	func postNote(note: Attributes) {
-		let parameters = ["title": note.title, "content": note.content, "date": note.date]
+		let parameters = ["title": note.title, "content": note.content, "date": note.date] as [String : Any]
 		
 		guard let url = URL(string: "https://projetojs.herokuapp.com/") else{return}
 		

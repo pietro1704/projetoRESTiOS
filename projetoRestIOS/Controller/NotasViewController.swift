@@ -29,9 +29,23 @@ class NotasViewController: UIViewController {
 		apiHandler.getAllNotes { (jsons) in
 			self.jsonObjects = jsons
 			self.notes = jsons.map{$0.attributes}
-			print(self.notes)
+			
+			for note in self.notes!{
+				print(note.date)
+				
+				let dateFormatter = DateFormatter()
+				dateFormatter.dateFormat = "HH:mm dd/MM/yyyy"
+				dateFormatter.timeZone = .current
+				
+				let date = dateFormatter.string(from: note.date!)
+				
+				print(date)
+			}
 		}
+		
 	}
+	
+	
 	
 	@IBAction func unwindToViewNotes(_ unwindSegue: UIStoryboardSegue) {
 		let sourceViewController = unwindSegue.source

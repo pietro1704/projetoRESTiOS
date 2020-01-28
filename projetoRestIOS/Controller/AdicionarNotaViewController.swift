@@ -30,7 +30,7 @@ class AdicionarNotaViewController: UIViewController {
 			return
 		}
 		//let note = NoteModel(json: ["title":titleTextField.text!, "content": contentTextField.text!, "date": Date()])
-		let note = Attributes(title: titleTextField.text!, content: contentTextField.text!, date: Date().description)
+		let note = Attributes(title: titleTextField.text!, content: contentTextField.text!, date: Date())
 
 		
 		apiHandler.postNote(note: note)
