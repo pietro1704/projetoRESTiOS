@@ -29,6 +29,7 @@ class AdicionarNotaViewController: UIViewController {
 			showNilTextAlertController()
 			return
 		}
+		
 		let note = NoteModel(title: titleTextField.text!, content: contentTextField.text!, date: Date())
 		
 		

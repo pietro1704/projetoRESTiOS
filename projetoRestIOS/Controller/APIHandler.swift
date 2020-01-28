@@ -23,8 +23,10 @@ class APIHandler{
 			if let data = data{
 				print(data)
 				do{
-					let json = try JSONSerialization.jsonObject(with: data, options: [])
-					print(json)
+					let note = try JSONDecoder().decode(NoteModel.self, from: data)
+					print(note)
+					
+					
 				}catch{
 					print(error)
 				}
