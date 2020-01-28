@@ -24,9 +24,7 @@ class NotasViewController: UIViewController {
 		
 		#warning("pegar as notas do BD e recarregar a tablw view")
 		
-		apiHandler.getAllNotes { (note, error) in
-			self.notes = notes
-		}
+		apiHandler.getAllNotes()
 	}
 	
 	@IBAction func unwindToViewNotes(_ unwindSegue: UIStoryboardSegue) {

@@ -30,9 +30,9 @@ class AdicionarNotaViewController: UIViewController {
 			return
 		}
 		let note = NoteModel(title: titleTextField.text!, content: contentTextField.text!, date: Date())
-		apiHandler.createNote(note: note)
 		
 		
+		apiHandler.postNote(note: note)
 		
 		performSegue(withIdentifier: "unwindToViewNotesSegue", sender: nil)
 	}
