@@ -10,9 +10,10 @@ import Foundation
 
 class APIHandler{
 	
+	//format date from note as string: "HH:mm:ss - dd/MM/yyyy"
 	func formatDate(_ note: Attributes?)->String? {
 		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "HH:mm:ss dd/MM/yyyy"
+		dateFormatter.dateFormat = "HH:mm:ss - dd/MM/yyyy"
 		dateFormatter.timeZone = .current
 		
 		guard note != nil else{
@@ -25,10 +26,11 @@ class APIHandler{
 		return date
 	}
 		
+	//get all notes from app url and executes completion assyncronously
 	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void) {
 		guard let url = URL(string: "https://projetojs.herokuapp.com/") else{return}
 		
-		
+		//url session
 		let session = URLSession.shared
 		session.dataTask(with: url) { (data, response, error) in
 			
@@ -41,12 +43,13 @@ class APIHandler{
 					completion(notes)
 					
 				}catch{
-					print(error)
+					print("erro no getAll", error.localizedDescription)
 				}
 			}
 		}.resume()
 	}
 	
+	//delete note provided its id
 	func deleteNote(id:String){
 		guard let url = URL(string: "https://projetojs.herokuapp.com/\(id)") else{return}
 		
@@ -56,7 +59,7 @@ class APIHandler{
 		URLSession.shared.dataTask(with: request) { (data, respose, error) in
 			DispatchQueue.main.async {
 				if let error = error{
-					print(error.localizedDescription)
+					print("erro no delete", error.localizedDescription)
 					return
 				}
 				
@@ -64,6 +67,7 @@ class APIHandler{
 		}.resume()
 	}
 	
+	//posts note
 	func postNote(note: Attributes) {
 		let parameters = ["title": note.title, "content": note.content]
 		
@@ -81,12 +85,8 @@ class APIHandler{
 		
 		let session = URLSession.shared
 		session.dataTask(with: request) { (data, respose, error) in
-			if let data = data{
-				do{
-					let json = try JSONSerialization.jsonObject(with: data, options: [])
-				}catch{
-					print(error)
-				}
+			if let error = error{
+				print("erro no Post",error.localizedDescription)
 			}
 		}.resume()
 	}

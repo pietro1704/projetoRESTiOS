@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+//JsonObject is equal to my JSON (every attribute)
 struct JsonObject: Codable {
 	var type: String
 	var id: String
@@ -20,7 +20,6 @@ struct Attributes:Codable {
 	var title: String
 	var content: String
 	var date: Date?
-//	var dateSwift:String?
 }
 
 struct Link: Codable {

@@ -13,9 +13,7 @@ class AdicionarNotaViewController: UIViewController {
 	@IBOutlet weak var titleTextField: UITextField!
 	
 	@IBOutlet weak var contentTextField: UITextField!
-	
-	let apiHandler = APIHandler()
-	
+		
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -25,21 +23,19 @@ class AdicionarNotaViewController: UIViewController {
 	}
 	
 	@IBAction func adicionarTapped(_ sender: Any) {
-		guard titleTextField.text != "", contentTextField.text != "" else{
+		guard titleTextField.text != "" else{
 			showNilTextAlertController()
 			return
 		}
-		//let note = NoteModel(json: ["title":titleTextField.text!, "content": contentTextField.text!, "date": Date()])
 		let note = Attributes(title: titleTextField.text!, content: contentTextField.text!, date: Date())
 
-		
-		apiHandler.postNote(note: note)
+		APIHandler().postNote(note: note)
 		
 		performSegue(withIdentifier: "unwindToViewNotesSegue", sender: nil)
 	}
 	
 	func showNilTextAlertController(){
-		let alert = UIAlertController(title: "Algo Vazio", message: "por favor preencha todos os campos", preferredStyle: .alert)
+		let alert = UIAlertController(title: "Titulo Vazio", message: "por favor preencha o título", preferredStyle: .alert)
 		let OK = UIAlertAction(title: "OK", style: .cancel, handler: nil)
 		alert.addAction(OK)
 		present(alert, animated: true)
@@ -47,10 +43,12 @@ class AdicionarNotaViewController: UIViewController {
 }
 
 extension AdicionarNotaViewController: UITextFieldDelegate{
+	//remove keyboard
 	func textFieldDidEndEditing(_ textField: UITextField) {
 		textField.resignFirstResponder()
 	}
 	
+	//accepts enter and remove keyboard
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		textField.resignFirstResponder()
 		return true

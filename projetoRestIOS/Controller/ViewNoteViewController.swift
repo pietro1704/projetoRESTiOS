@@ -15,16 +15,12 @@ class ViewNoteViewController: UIViewController {
 	@IBOutlet weak var contentLabel: UILabel!
 	
 	var note:Attributes?
-	
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
+
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
 		titleLabel.text = note?.title
-		dateLabel.text = note?.date?.description
+		dateLabel.text = APIHandler().formatDate(note)
 		contentLabel.text = note?.content
 	}
 }
