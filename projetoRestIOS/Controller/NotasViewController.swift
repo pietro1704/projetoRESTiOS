@@ -37,7 +37,7 @@ class NotasViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		#warning("pegar as notas do BD e recarregar a tablw view")
+		print("APARECI")
 		
 		updateTableView()
 	}
@@ -81,8 +81,9 @@ extension NotasViewController: UITableViewDelegate, UITableViewDataSource{
 	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete{
-			tableView.deleteRows(at: [indexPath], with: .automatic)
 			apiHandler.deleteNote(id: jsonObjects![indexPath.row].id)
+			notes?.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .automatic)
 			updateTableView()
 			
 		}

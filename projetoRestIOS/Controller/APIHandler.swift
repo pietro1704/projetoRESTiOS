@@ -31,12 +31,8 @@ class APIHandler{
 		
 		let session = URLSession.shared
 		session.dataTask(with: url) { (data, response, error) in
-			if let response = response{
-				print(response)
-			}
 			
 			if let data = data{
-				print("DATA = ",data)
 				do{
 					let jsonDecoder = JSONDecoder()
 					jsonDecoder.dateDecodingStrategy = .formatted(.fullISO8601)
@@ -88,7 +84,6 @@ class APIHandler{
 			if let data = data{
 				do{
 					let json = try JSONSerialization.jsonObject(with: data, options: [])
-					print(json)
 				}catch{
 					print(error)
 				}
