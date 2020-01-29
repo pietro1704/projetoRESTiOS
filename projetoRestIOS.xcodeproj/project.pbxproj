@@ -18,6 +18,7 @@
 		8D40950623E053070036D24F /* NotasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950523E053070036D24F /* NotasTableViewCell.swift */; };
 		8D40950823E054A70036D24F /* AdicionarNotaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */; };
 		8D40950A23E0561B0036D24F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D40950923E0561B0036D24F /* Note.swift */; };
+		8D73506C23E1DB3B00FCBE8F /* ViewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73506B23E1DB3B00FCBE8F /* ViewNoteViewController.swift */; };
 		8D917ECD23E0A3B800BC4E55 /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D917ECC23E0A3B800BC4E55 /* DateFormatterExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		8D40950523E053070036D24F /* NotasTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotasTableViewCell.swift; sourceTree = "<group>"; };
 		8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdicionarNotaViewController.swift; sourceTree = "<group>"; };
 		8D40950923E0561B0036D24F /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		8D73506B23E1DB3B00FCBE8F /* ViewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewNoteViewController.swift; path = projetoRestIOS/Controller/ViewNoteViewController.swift; sourceTree = SOURCE_ROOT; };
 		8D917ECC23E0A3B800BC4E55 /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				8D4094E923E051C40036D24F /* Main.storyboard */,
+				8D73506B23E1DB3B00FCBE8F /* ViewNoteViewController.swift */,
 				8D40950523E053070036D24F /* NotasTableViewCell.swift */,
 			);
 			path = View;
@@ -251,6 +254,7 @@
 				8D4094E823E051C40036D24F /* NotasViewController.swift in Sources */,
 				8D40950A23E0561B0036D24F /* Note.swift in Sources */,
 				8D40950823E054A70036D24F /* AdicionarNotaViewController.swift in Sources */,
+				8D73506C23E1DB3B00FCBE8F /* ViewNoteViewController.swift in Sources */,
 				8D4094E423E051C40036D24F /* AppDelegate.swift in Sources */,
 				8D4094E623E051C40036D24F /* SceneDelegate.swift in Sources */,
 				8D917ECD23E0A3B800BC4E55 /* DateFormatterExtension.swift in Sources */,

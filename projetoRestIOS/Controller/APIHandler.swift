@@ -51,6 +51,23 @@ class APIHandler{
 		}.resume()
 	}
 	
+	func deleteNote(id:String){
+		guard let url = URL(string: "https://projetojs.herokuapp.com/\(id)") else{return}
+		
+		var request = URLRequest(url: url)
+		request.httpMethod = "DELETE"
+		
+		URLSession.shared.dataTask(with: request) { (data, respose, error) in
+			DispatchQueue.main.async {
+				if let error = error{
+					print(error.localizedDescription)
+					return
+				}
+				
+			}
+		}.resume()
+	}
+	
 	func postNote(note: Attributes) {
 		let parameters = ["title": note.title, "content": note.content]
 		

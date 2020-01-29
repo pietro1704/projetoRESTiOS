@@ -9,7 +9,7 @@
 import UIKit
 
 class NotasViewController: UIViewController {
-
+	
 	@IBOutlet weak var tableView: UITableView!
 	
 	let apiHandler = APIHandler()
@@ -17,6 +17,8 @@ class NotasViewController: UIViewController {
 	var notes:[Attributes]?
 	
 	override func viewDidLoad() {
+		
+		
 		super.viewDidLoad()
 		addRefreshControl()
 	}
@@ -55,7 +57,7 @@ class NotasViewController: UIViewController {
 	
 	@objc func refreshData(_ sender:Any){
 		updateTableView()
-//		tableView.reloadData()
+		//		tableView.reloadData()
 		tableView.refreshControl?.endRefreshing()
 	}
 }
@@ -77,6 +79,23 @@ extension NotasViewController: UITableViewDelegate, UITableViewDataSource{
 		return cell
 	}
 	
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete{
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+			apiHandler.deleteNote(id: jsonObjects![indexPath.row].id)
+			updateTableView()
+			
+		}
+	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.performSegue(withIdentifier: "toViewNote", sender: notes![indexPath.row])
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let sender = sender as? Attributes else{return}
+		guard let dest = segue.destination as? ViewNoteViewController else {return}
+		dest.note = sender
+	}
 }
 
