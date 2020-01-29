@@ -64,7 +64,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="MCS-EW-rHd"/>
+                    <tabBarItem key="tabBarItem" title="Notas" image="pencil.circle.fill" catalog="system" id="MCS-EW-rHd"/>
                     <navigationItem key="navigationItem" title="Minhas Notas" id="JQx-NK-Jma">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="wUL-q6-de1"/>
                     </navigationItem>
@@ -255,6 +255,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pencil.circle.fill" catalog="system" width="64" height="60"/>
         <image name="plus" catalog="system" width="64" height="56"/>
         <image name="square.and.pencil" catalog="system" width="64" height="58"/>
     </resources>

@@ -69,7 +69,7 @@ class NotasViewController: UIViewController {
 		emptyTableViewLabel.numberOfLines = 0
 		emptyTableViewLabel.text = "Você ainda não tem nenhuma nota..."
 		emptyTableViewLabel.textAlignment = .center
-		emptyTableViewLabel.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: (emptyTableViewLabel.font)!)
+		emptyTableViewLabel.font = UIFont.preferredFont(forTextStyle: .title2)
 		self.view.addSubview(emptyTableViewLabel)
 	}
 	
