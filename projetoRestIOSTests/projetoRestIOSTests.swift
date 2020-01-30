@@ -24,8 +24,6 @@ class ApiHandlerMock: ApiHandler{
 	func postNote(note: Attributes) {
 		print("postei a nota \(note)")
 	}
-	
-	
 }
 
 class projetoRestIOSTests: XCTestCase {
@@ -87,7 +85,5 @@ class projetoRestIOSTests: XCTestCase {
 		XCTAssert(note[0].title == attributes.title)
 		XCTAssert(note[0].content == attributes.content)
 		XCTAssert(note[0].date == attributes.date)
-
-		
 	}
 }
