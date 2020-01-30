@@ -48,6 +48,8 @@ class APIHandlerDefault: ApiHandler{
 			if let data = data{
 				do{
 					let jsonDecoder = JSONDecoder()
+					
+					//my dateFormatterExtension for formatting JSON iso8601 date
 					jsonDecoder.dateDecodingStrategy = .formatted(.fullISO8601)
 					let notes = try jsonDecoder.decode([JsonObject].self, from: data)
 					

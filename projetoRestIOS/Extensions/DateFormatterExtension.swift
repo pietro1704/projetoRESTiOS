@@ -8,6 +8,8 @@
 
 import Foundation
 extension DateFormatter{
+	
+	//my dateFormatterExtension for formatting JSON fulliso8601 date
 	static let fullISO8601: DateFormatter = {
 		let formatter = DateFormatter()
 		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
