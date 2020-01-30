@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D3B39DE23E0580800158315 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B39DD23E0580800158315 /* APIHandler.swift */; };
+		8D3B39DE23E0580800158315 /* APIHandlerDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B39DD23E0580800158315 /* APIHandlerDefault.swift */; };
 		8D4094E423E051C40036D24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4094E323E051C40036D24F /* AppDelegate.swift */; };
 		8D4094E623E051C40036D24F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4094E523E051C40036D24F /* SceneDelegate.swift */; };
 		8D4094E823E051C40036D24F /* NotasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4094E723E051C40036D24F /* NotasViewController.swift */; };
@@ -33,7 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8D3B39DD23E0580800158315 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		8D3B39DD23E0580800158315 /* APIHandlerDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandlerDefault.swift; sourceTree = "<group>"; };
 		8D4094E023E051C40036D24F /* projetoRestIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projetoRestIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4094E323E051C40036D24F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D4094E523E051C40036D24F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				8D4094E723E051C40036D24F /* NotasViewController.swift */,
-				8D3B39DD23E0580800158315 /* APIHandler.swift */,
+				8D3B39DD23E0580800158315 /* APIHandlerDefault.swift */,
 				8D40950723E054A70036D24F /* AdicionarNotaViewController.swift */,
 			);
 			path = Controller;
@@ -250,7 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D3B39DE23E0580800158315 /* APIHandler.swift in Sources */,
+				8D3B39DE23E0580800158315 /* APIHandlerDefault.swift in Sources */,
 				8D4094E823E051C40036D24F /* NotasViewController.swift in Sources */,
 				8D40950A23E0561B0036D24F /* Note.swift in Sources */,
 				8D40950823E054A70036D24F /* AdicionarNotaViewController.swift in Sources */,

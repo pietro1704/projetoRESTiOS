@@ -8,7 +8,14 @@
 
 import Foundation
 
-class APIHandler{
+protocol ApiHandler {
+	func formatDate(_ note: Attributes?)->String?
+	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void)
+	func deleteNote(id:String)
+	func postNote(note: Attributes)
+}
+
+class APIHandlerDefault: ApiHandler{
 	
 	//format date from note as string: "HH:mm:ss - dd/MM/yyyy"
 	func formatDate(_ note: Attributes?)->String? {

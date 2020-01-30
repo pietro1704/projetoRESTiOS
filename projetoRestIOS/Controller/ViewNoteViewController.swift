@@ -20,7 +20,7 @@ class ViewNoteViewController: UIViewController {
 		super.viewWillAppear(animated)
 		
 		titleLabel.text = note?.title
-		dateLabel.text = APIHandler().formatDate(note)
+		dateLabel.text = APIHandlerDefault().formatDate(note)
 		contentLabel.text = note?.content
 	}
 }

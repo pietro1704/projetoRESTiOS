@@ -12,7 +12,7 @@ class NotasViewController: UIViewController {
 	
 	@IBOutlet weak var tableView: UITableView!
 	
-	let apiHandler = APIHandler()
+	let apiHandler = APIHandlerDefault()
 	
 	var emptyTableViewLabel = UILabel()
 	
