@@ -9,7 +9,6 @@
 import Foundation
 
 protocol ApiHandler {
-	func formatDate(_ note: Attributes?)->String?
 	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void)
 	func deleteNote(id:String)
 	func postNote(note: Attributes)
