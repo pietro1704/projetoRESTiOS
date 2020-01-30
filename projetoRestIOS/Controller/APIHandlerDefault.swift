@@ -31,6 +31,11 @@ class APIHandlerDefault: ApiHandler{
 		
 		return date
 	}
+	
+	//getNoteFromJson
+	func getNote(from jsonObj:[JsonObject])->[Attributes]{
+		return jsonObj.map{$0.attributes}
+	}
 		
 	//get all notes from app url and executes completion assyncronously
 	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void) {

@@ -24,7 +24,7 @@ class NotasViewController: UIViewController {
 		didSet{
 			
 			//updates note list (json title, content and date attributes only)
-			self.notes = jsonObjects.map{$0.attributes}
+			self.notes = APIHandlerDefault().getNote(from: jsonObjects)
 
 			//hides table view if empty
 			if jsonObjects.count == 0{
