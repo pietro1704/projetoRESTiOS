@@ -28,7 +28,7 @@ class APIHandler{
 		
 	//get all notes from app url and executes completion assyncronously
 	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void) {
-		guard let url = URL(string: "https://projetojs.herokuapp.com/") else{return}
+		guard let url = URL(string: "https://projetojs.herokuapp.com/notes") else{return}
 		
 		//url session
 		let session = URLSession.shared
@@ -51,7 +51,7 @@ class APIHandler{
 	
 	//delete note provided its id
 	func deleteNote(id:String){
-		guard let url = URL(string: "https://projetojs.herokuapp.com/\(id)") else{return}
+		guard let url = URL(string: "https://projetojs.herokuapp.com/notes/\(id)") else{return}
 		
 		var request = URLRequest(url: url)
 		request.httpMethod = "DELETE"
@@ -71,7 +71,7 @@ class APIHandler{
 	func postNote(note: Attributes) {
 		let parameters = ["title": note.title, "content": note.content]
 		
-		guard let url = URL(string: "https://projetojs.herokuapp.com/") else{return}
+		guard let url = URL(string: "https://projetojs.herokuapp.com/notes") else{return}
 		
 		
 		var request = URLRequest(url: url)
