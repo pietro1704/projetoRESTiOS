@@ -83,6 +83,14 @@ class NotasViewController: UIViewController {
 		tableView.isHidden = true
 		emptyTableViewLabel.isHidden = true
 		
+		
+		tableView.isAccessibilityElement = true
+		let action = UIAccessibilityCustomAction(name: "recarregar notas") { (action) -> Bool in
+			self.updateTableView()
+			return true
+		}
+		tableView.accessibilityCustomActions = [action]
+		
 		configureEmptyTableViewLabel()
 		
 		//activity indicator and table view refresh control
@@ -134,12 +142,21 @@ extension NotasViewController: UITableViewDelegate, UITableViewDataSource{
 		return cell
 	}
 	
-	//swipe editing style. Automatic for left to right languages
+	//delete note from table view and DB from indexPath
+	fileprivate func deleteNoteFromTableView(_ indexPath: IndexPath, _ tableView: UITableView) {
+		//delete from DB
+		apiHandler.deleteNote(id: jsonObjects[indexPath.row].id)
+		
+		//remove from array and table View
+		jsonObjects.remove(at: indexPath.row)
+		tableView.deleteRows(at: [indexPath], with: .automatic)
+	}
+	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		//swipe editing style. Automatic for left to right languages
 		if editingStyle == .delete{
-			apiHandler.deleteNote(id: jsonObjects[indexPath.row].id)
-			jsonObjects.remove(at: indexPath.row)
-			tableView.deleteRows(at: [indexPath], with: .automatic)
+			
+			deleteNoteFromTableView(indexPath, tableView)
 			
 			//reload data
 			updateTableView()
