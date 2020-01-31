@@ -24,26 +24,31 @@ class NotasViewController: UIViewController {
 		didSet{
 			
 			//updates note list (json title, content and date attributes only)
-			self.notes = APIHandlerDefault().getNote(from: jsonObjects)
-
-			//hides table view if empty
-			if jsonObjects.count == 0{
-				//view updates must be done in main thread
-				OperationQueue.main.addOperation {
-					self.tableView.isHidden = true
-					self.emptyTableViewLabel.isHidden = false
-				}
-				
-			}else{
-				OperationQueue.main.addOperation {
-					self.emptyTableViewLabel.isHidden = true
-					self.tableView.isHidden = false
-				}
-			}
+			self.notes = apiHandler.getNote(from: jsonObjects)
+			
 		}
 	}
 	
-
+	fileprivate func configureItensEmptyNotes() {
+		if self.jsonObjects.count == 0{
+			
+			
+			//hides table view if empty
+			self.tableView.isHidden = true
+			
+			//sets empty table view label to appear only when activity indicator is hidden
+			if self.activityIndicator.isAnimating == false{
+				self.emptyTableViewLabel.isHidden = false
+				
+			}
+		}else{
+			//hides empty table view label and shows table view
+			self.emptyTableViewLabel.isHidden = true
+			self.tableView.isHidden = false
+			
+		}
+	}
+	
 	fileprivate func configureActivityIndicator() {
 		activityIndicator.hidesWhenStopped = true
 		activityIndicator.style = .large
@@ -76,6 +81,7 @@ class NotasViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.isHidden = true
+		emptyTableViewLabel.isHidden = true
 		
 		configureEmptyTableViewLabel()
 		
@@ -86,19 +92,22 @@ class NotasViewController: UIViewController {
 	
 	//api get all notes asyncronously, configure jsonObjects and notes and reload table view
 	fileprivate func updateTableView() {
+		self.activityIndicator.startAnimating()
 		apiHandler.getAllNotes { (jsons) in
 			self.jsonObjects = jsons
 			
 			DispatchQueue.main.async {
+				self.activityIndicator.stopAnimating()
 				self.tableView.reloadData()
+				self.configureItensEmptyNotes()
 			}
 		}
 	}
 	
 	//load or unwind here or back
 	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		
+		//no super bc it changes subview appearance behaviour
+		self.emptyTableViewLabel.isHidden = true
 		updateTableView()
 	}
 	
@@ -122,12 +131,10 @@ extension NotasViewController: UITableViewDelegate, UITableViewDataSource{
 		cell.titleLabel.text = note.title
 		cell.dateLabel.text = apiHandler.formatDate(note)
 		
-		activityIndicator.stopAnimating()
-		
 		return cell
 	}
 	
-	//swipe editing stylw. Automatic for left to right languages
+	//swipe editing style. Automatic for left to right languages
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete{
 			apiHandler.deleteNote(id: jsonObjects[indexPath.row].id)
