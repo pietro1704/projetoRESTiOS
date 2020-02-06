@@ -27,6 +27,11 @@ class APIHandlerDefault: ApiHandler{
 			return nil
 		}
 		
+		guard note?.date != nil else{
+			print("date nil")
+			return nil
+		}
+		
 		let date = dateFormatter.string(from: (note?.date)!)
 		
 		return date

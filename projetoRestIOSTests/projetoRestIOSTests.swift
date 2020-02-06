@@ -56,6 +56,12 @@ class projetoRestIOSTests: XCTestCase {
 		XCTAssert(dateNow.description == dateFormatter.date(from: dateString)?.description)
 	}
 	
+	//not nil note but with date nil error
+	func testDateNilError() {
+		let note = Attributes(title: "", content: "", date: nil)
+		XCTAssertNil(APIHandlerDefault().formatDate(note))
+	}
+	
 	func testCreateNote() {
 		let note:Attributes!
 				
@@ -63,6 +69,13 @@ class projetoRestIOSTests: XCTestCase {
 		
 		XCTAssertNotNil(note)
 		
+	}
+	
+	//note not nil but with date nil
+	func testNoteNilDate() {
+		let note = Attributes(title: "titulo", content: "content", date: nil)
+		XCTAssertNotNil(note)
+
 	}
 	
 	func testGetAll() {
