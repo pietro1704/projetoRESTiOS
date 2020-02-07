@@ -29,7 +29,6 @@ class ApiHandlerMock: ApiHandler{
 class projetoRestIOSTests: XCTestCase {
 	var apiHandler:ApiHandlerMock!
 
-	
 	override func setUp() {
 		super.setUp()
 		apiHandler = ApiHandlerMock()
@@ -41,19 +40,22 @@ class projetoRestIOSTests: XCTestCase {
 		super.tearDown()
 	}
 	
-	func testFormatterStyle() {
+	func testFormatterStringCorrectStyle() {
 		let dateNow = Date()
+		//mock note
 		let note = Attributes(title: "", content: "", date: dateNow)
 		
-		guard let dateString = APIHandlerDefault().formatDate(note) else { return  }
+		//srtring from date to check function
+		guard let dateStringApp = APIHandlerDefault().formatDate(note) else { return  }
+		print("\n\n dateStringApp = \(dateStringApp)\n\n")
+		
 		
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "HH:mm:ss - dd/MM/yyyy"
-		
-		print("date note", note.date!)
-		print("date outside", dateFormatter.date(from: dateString)!)
-		
-		XCTAssert(dateNow.description == dateFormatter.date(from: dateString)?.description)
+			
+		let dateStringTest = dateFormatter.string(from: dateNow)
+		print("\n\n dateStringTest = \(dateStringTest)\n\n")
+		XCTAssert(dateStringApp == dateStringTest)
 	}
 	
 	//not nil note but with date nil error
