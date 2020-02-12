@@ -96,10 +96,10 @@
 				8D40950C23E056530036D24F /* View */,
 				8D40950D23E056570036D24F /* Controller */,
 				8D40950B23E056480036D24F /* Model */,
+				8D917ECB23E0A39A00BC4E55 /* Extensions */,
 				8D4094EC23E051C70036D24F /* Assets.xcassets */,
 				8D4094EE23E051C70036D24F /* LaunchScreen.storyboard */,
 				8D4094F123E051C70036D24F /* Info.plist */,
-				8D917ECB23E0A39A00BC4E55 /* Extensions */,
 			);
 			path = projetoRestIOS;
 			sourceTree = "<group>";

@@ -19,7 +19,7 @@ class ViewNoteViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		titleLabel.text = note?.title
+		titleLabel.text = note?.title ?? "nota sem título"
 		dateLabel.text = APIHandlerDefault().formatDate(note)
 		contentLabel.text = note?.content
 	}

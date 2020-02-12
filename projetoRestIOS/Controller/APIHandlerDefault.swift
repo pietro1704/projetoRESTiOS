@@ -23,11 +23,14 @@ class APIHandlerDefault: ApiHandler{
 		dateFormatter.timeZone = .current
 		
 		guard note != nil else{
+			#warning("Handle error.....")
 			print("note ainda nil")
 			return nil
 		}
 		
 		guard note?.date != nil else{
+			#warning("Handle error.....")
+
 			print("date nil")
 			return nil
 		}
@@ -44,7 +47,10 @@ class APIHandlerDefault: ApiHandler{
 		
 	//get all notes from app url and executes completion assyncronously
 	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void) {
-		guard let url = URL(string: "https://projetojs.herokuapp.com/notes") else{return}
+		guard let url = URL(string: "https://projetojs.herokuapp.com/notes") else{
+			#warning("Handle error.....")
+			return
+		}
 		
 		//url session
 		let session = URLSession.shared
@@ -61,6 +67,8 @@ class APIHandlerDefault: ApiHandler{
 					completion(notes)
 					
 				}catch{
+					#warning("Handle error.....")
+
 					print("erro no getAll", error.localizedDescription)
 				}
 			}
@@ -69,7 +77,10 @@ class APIHandlerDefault: ApiHandler{
 	
 	//delete note provided its id
 	func deleteNote(id:String){
-		guard let url = URL(string: "https://projetojs.herokuapp.com/notes/\(id)") else{return}
+		guard let url = URL(string: "https://projetojs.herokuapp.com/notes/\(id)") else{
+			#warning("Handle error.....")
+			return
+		}
 		
 		var request = URLRequest(url: url)
 		request.httpMethod = "DELETE"
@@ -77,6 +88,8 @@ class APIHandlerDefault: ApiHandler{
 		URLSession.shared.dataTask(with: request) { (data, respose, error) in
 			DispatchQueue.main.async {
 				if let error = error{
+					#warning("Handle error.....")
+
 					print("erro no delete", error.localizedDescription)
 					return
 				}
@@ -97,6 +110,8 @@ class APIHandlerDefault: ApiHandler{
 		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 		
 		guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else{
+			#warning("Handle error.....")
+
 			return
 		}
 		request.httpBody = httpBody
@@ -104,6 +119,8 @@ class APIHandlerDefault: ApiHandler{
 		let session = URLSession.shared
 		session.dataTask(with: request) { (data, respose, error) in
 			if let error = error{
+				#warning("Handle error.....")
+
 				print("erro no Post",error.localizedDescription)
 			}
 		}.resume()

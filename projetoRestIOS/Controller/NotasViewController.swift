@@ -133,13 +133,13 @@ extension NotasViewController: UITableViewDelegate, UITableViewDataSource{
 	
 	//cell for row at
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NotasTableViewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as? NotasTableViewCell
 		
 		let note = notes[indexPath.row]
-		cell.titleLabel.text = note.title
-		cell.dateLabel.text = apiHandler.formatDate(note)
+		cell?.titleLabel.text = note.title
+		cell?.dateLabel.text = apiHandler.formatDate(note)
 		
-		return cell
+		return cell ?? UITableViewCell()
 	}
 	
 	//delete note from table view and DB from indexPath
