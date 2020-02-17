@@ -25,11 +25,15 @@ class AdicionarNotaViewController: UIViewController {
 	}
 	
 	@IBAction func adicionarTapped(_ sender: Any) {
-		guard titleTextField.text != "" else{
-			showNilTextAlertController()
-			return
-		}
-		let note = Attributes(title: titleTextField.text!, content: contentTextField.text!, date: Date())
+//		guard titleTextField.text != "" else{
+//			showNilTextAlertController()
+//			return
+//		}
+		
+		let noteTitle = titleTextField.text == "" ? "nota sem título" : titleTextField.text!
+		let noteContent = contentTextField.text == "" ? "nota sem conteúdo" : contentTextField.text!
+
+		let note = Attributes(title: noteTitle, content: noteContent, date: Date())
 
 		APIHandlerDefault().postNote(note: note)
 		
