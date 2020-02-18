@@ -46,7 +46,7 @@ class projetoRestIOSTests: XCTestCase {
 		let note = Attributes(title: "", content: "", date: dateNow)
 		
 		//srtring from date to check function
-		guard let dateStringApp = APIHandlerDefault().formatDate(note) else { return  }
+		guard let dateStringApp = try? APIHandlerDefault().formatDate(note) else { return  }
 		print("\n\n dateStringApp = \(dateStringApp)\n\n")
 		
 		
@@ -61,7 +61,11 @@ class projetoRestIOSTests: XCTestCase {
 	//not nil note but with date nil error
 	func testDateNilError() {
 		let note = Attributes(title: "", content: "", date: nil)
-		XCTAssertNil(APIHandlerDefault().formatDate(note))
+		XCTAssertThrowsError(try APIHandlerDefault().formatDate(note))
+	}
+	
+	func testNoteNilError() {
+		XCTAssertThrowsError(try APIHandlerDefault().formatDate(nil))
 	}
 	
 	func testCreateNote() {

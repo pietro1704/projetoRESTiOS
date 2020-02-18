@@ -101,7 +101,7 @@ class NotasViewController: UIViewController {
 	//api get all notes asyncronously, configure jsonObjects and notes and reload table view
 	fileprivate func updateTableView() {
 		self.activityIndicator.startAnimating()
-		apiHandler.getAllNotes { (jsons) in
+		try? apiHandler.getAllNotes { (jsons) in
 			self.jsonObjects = jsons
 			
 			DispatchQueue.main.async {
@@ -137,7 +137,7 @@ extension NotasViewController: UITableViewDelegate, UITableViewDataSource{
 		
 		let note = notes[indexPath.row]
 		cell?.titleLabel.text = note.title
-		cell?.dateLabel.text = apiHandler.formatDate(note)
+		cell?.dateLabel.text = try? apiHandler.formatDate(note)
 		
 		return cell ?? UITableViewCell()
 	}
@@ -145,7 +145,7 @@ extension NotasViewController: UITableViewDelegate, UITableViewDataSource{
 	//delete note from table view and DB from indexPath
 	fileprivate func deleteNoteFromTableView(_ indexPath: IndexPath, _ tableView: UITableView) {
 		//delete from DB
-		apiHandler.deleteNote(id: jsonObjects[indexPath.row].id)
+		try? apiHandler.deleteNote(id: jsonObjects[indexPath.row].id)
 		
 		//remove from array and table View
 		jsonObjects.remove(at: indexPath.row)

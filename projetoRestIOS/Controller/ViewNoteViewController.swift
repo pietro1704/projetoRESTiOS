@@ -20,7 +20,7 @@ class ViewNoteViewController: UIViewController {
 		super.viewWillAppear(animated)
 		
 		titleLabel.text = note?.title ?? "nota sem título"
-		dateLabel.text = APIHandlerDefault().formatDate(note)
+		dateLabel.text = try? APIHandlerDefault().formatDate(note)
 		contentLabel.text = note?.content
 	}
 }

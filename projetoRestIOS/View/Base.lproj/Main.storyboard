@@ -66,7 +66,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Notas" image="pencil.circle.fill" catalog="system" id="MCS-EW-rHd"/>
                     <navigationItem key="navigationItem" title="Minhas Notas" id="JQx-NK-Jma">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="wUL-q6-de1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wUL-q6-de1"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="EQm-lv-9lI" id="LFe-ak-fFQ"/>
@@ -124,12 +124,12 @@
                             <constraint firstItem="OZX-Vy-UWU" firstAttribute="top" secondItem="XHx-TV-9TW" secondAttribute="bottom" constant="20" id="6FW-lX-BOG"/>
                             <constraint firstAttribute="bottom" secondItem="LbK-Js-YZg" secondAttribute="bottom" constant="20" symbolic="YES" id="CIC-x8-6zD"/>
                             <constraint firstItem="LbK-Js-YZg" firstAttribute="top" secondItem="OZX-Vy-UWU" secondAttribute="bottom" constant="20" id="DWG-w8-xY0"/>
-                            <constraint firstAttribute="trailing" secondItem="OZX-Vy-UWU" secondAttribute="trailing" constant="40" id="HQ3-BF-rzZ"/>
-                            <constraint firstItem="OZX-Vy-UWU" firstAttribute="leading" secondItem="A0w-QP-GSc" secondAttribute="leading" constant="40" id="XU6-xW-H3I"/>
-                            <constraint firstAttribute="trailing" secondItem="XHx-TV-9TW" secondAttribute="trailing" constant="40" id="YqR-P9-xV4"/>
+                            <constraint firstItem="OZX-Vy-UWU" firstAttribute="width" secondItem="A0w-QP-GSc" secondAttribute="width" multiplier="0.806763" id="WOg-Xx-RxZ"/>
                             <constraint firstItem="LbK-Js-YZg" firstAttribute="leading" secondItem="A0w-QP-GSc" secondAttribute="leading" constant="20" symbolic="YES" id="cMb-d9-BMj"/>
+                            <constraint firstItem="XHx-TV-9TW" firstAttribute="centerX" secondItem="W7Y-AO-Wqp" secondAttribute="centerX" id="cl7-Ph-Wvf"/>
+                            <constraint firstItem="XHx-TV-9TW" firstAttribute="width" secondItem="A0w-QP-GSc" secondAttribute="width" multiplier="0.806763" id="pca-NF-PEa"/>
                             <constraint firstAttribute="trailing" secondItem="LbK-Js-YZg" secondAttribute="trailing" constant="20" symbolic="YES" id="rTy-vK-fLl"/>
-                            <constraint firstItem="XHx-TV-9TW" firstAttribute="leading" secondItem="A0w-QP-GSc" secondAttribute="leading" constant="40" id="yjm-eD-eQO"/>
+                            <constraint firstItem="OZX-Vy-UWU" firstAttribute="centerX" secondItem="W7Y-AO-Wqp" secondAttribute="centerX" id="w7a-xZ-jsQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W7Y-AO-Wqp"/>
                     </view>
@@ -187,7 +187,6 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="334" id="2dx-Sc-bd5"/>
                                     <constraint firstAttribute="width" secondItem="J0J-16-sr6" secondAttribute="width" id="Bwm-qc-X3C"/>
                                     <constraint firstItem="DmA-RW-7yx" firstAttribute="width" secondItem="J0J-16-sr6" secondAttribute="width" id="KPo-Fv-JcU"/>
                                 </constraints>

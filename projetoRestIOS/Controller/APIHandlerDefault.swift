@@ -8,31 +8,36 @@
 
 import Foundation
 
+enum CustomErrors:Error{
+	case noteNil
+	case dateNil
+	
+	case URLNotFound
+	case getAllError
+	case deleteError
+	case postError
+}
+
 protocol ApiHandler {
-	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void)
-	func deleteNote(id:String)
-	func postNote(note: Attributes)
+	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void)throws
+	func deleteNote(id:String)throws
+	func postNote(note: Attributes)throws
 }
 
 class APIHandlerDefault: ApiHandler{
 	
 	//format date from note as string: "HH:mm:ss - dd/MM/yyyy"
-	func formatDate(_ note: Attributes?)->String? {
+	func formatDate(_ note: Attributes?)throws ->String? {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = "HH:mm:ss - dd/MM/yyyy"
 		dateFormatter.timeZone = .current
 		
 		guard note != nil else{
-			#warning("Handle error.....")
-			print("note ainda nil")
-			return nil
+			throw CustomErrors.noteNil
 		}
 		
 		guard note?.date != nil else{
-			#warning("Handle error.....")
-
-			print("date nil")
-			return nil
+			throw CustomErrors.dateNil
 		}
 		
 		let date = dateFormatter.string(from: (note?.date)!)
@@ -46,10 +51,9 @@ class APIHandlerDefault: ApiHandler{
 	}
 		
 	//get all notes from app url and executes completion assyncronously
-	func getAllNotes(completion: @escaping (_ note:[JsonObject])->Void) {
+	func getAllNotes(completion: @escaping (_ note:[JsonObject]) ->Void)throws {
 		guard let url = URL(string: "https://projetojs.herokuapp.com/notes") else{
-			#warning("Handle error.....")
-			return
+			throw CustomErrors.URLNotFound
 		}
 		
 		//url session
@@ -67,19 +71,16 @@ class APIHandlerDefault: ApiHandler{
 					completion(notes)
 					
 				}catch{
-					#warning("Handle error.....")
-
-					print("erro no getAll", error.localizedDescription)
+					print("error on JSON decoding -> ", error.localizedDescription)
 				}
 			}
 		}.resume()
 	}
 	
 	//delete note provided its id
-	func deleteNote(id:String){
+	func deleteNote(id:String)throws{
 		guard let url = URL(string: "https://projetojs.herokuapp.com/notes/\(id)") else{
-			#warning("Handle error.....")
-			return
+			throw CustomErrors.URLNotFound
 		}
 		
 		var request = URLRequest(url: url)
@@ -88,9 +89,8 @@ class APIHandlerDefault: ApiHandler{
 		URLSession.shared.dataTask(with: request) { (data, respose, error) in
 			DispatchQueue.main.async {
 				if let error = error{
-					#warning("Handle error.....")
-
-					print("erro no delete", error.localizedDescription)
+					
+					print("error on delete, URL session -> ", error.localizedDescription)
 					return
 				}
 				
@@ -99,7 +99,7 @@ class APIHandlerDefault: ApiHandler{
 	}
 	
 	//posts note
-	func postNote(note: Attributes) {
+	func postNote(note: Attributes)throws {
 		let parameters = ["title": note.title, "content": note.content]
 		
 		guard let url = URL(string: "https://projetojs.herokuapp.com/notes") else{return}
@@ -110,18 +110,15 @@ class APIHandlerDefault: ApiHandler{
 		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 		
 		guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else{
-			#warning("Handle error.....")
-
-			return
+			throw CustomErrors.postError
 		}
 		request.httpBody = httpBody
 		
 		let session = URLSession.shared
 		session.dataTask(with: request) { (data, respose, error) in
 			if let error = error{
-				#warning("Handle error.....")
 
-				print("erro no Post",error.localizedDescription)
+				print("error on Post -> ",error.localizedDescription)
 			}
 		}.resume()
 	}

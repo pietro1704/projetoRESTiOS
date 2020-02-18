@@ -16,9 +16,6 @@ class AdicionarNotaViewController: UIViewController {
 		
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		titleTextField.accessibilityLabel = "meu label acessível" //é o que ela fala primeiro
-		titleTextField.accessibilityHint = "meu título acessível" // dica: o que ela fala depois
-		
 		titleTextField.delegate = self
 		contentTextField.delegate = self
 		
@@ -35,7 +32,7 @@ class AdicionarNotaViewController: UIViewController {
 
 		let note = Attributes(title: noteTitle, content: noteContent, date: Date())
 
-		APIHandlerDefault().postNote(note: note)
+		try? APIHandlerDefault().postNote(note: note)
 		
 		performSegue(withIdentifier: "unwindToViewNotesSegue", sender: nil)
 	}
