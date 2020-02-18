@@ -13,9 +13,7 @@ enum CustomErrors:Error{
 	case dateNil
 	
 	case URLNotFound
-	case getAllError
-	case deleteError
-	case postError
+	case JSONSerializationError
 }
 
 protocol ApiHandler {
@@ -110,7 +108,7 @@ class APIHandlerDefault: ApiHandler{
 		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 		
 		guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else{
-			throw CustomErrors.postError
+			throw CustomErrors.JSONSerializationError
 		}
 		request.httpBody = httpBody
 		

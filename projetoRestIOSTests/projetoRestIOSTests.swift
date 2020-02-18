@@ -58,14 +58,15 @@ class projetoRestIOSTests: XCTestCase {
 		XCTAssert(dateStringApp == dateStringTest)
 	}
 	
+	
+	func testNoteNilError() {
+		XCTAssertThrowsError(try APIHandlerDefault().formatDate(nil))
+	}
+	
 	//not nil note but with date nil error
 	func testDateNilError() {
 		let note = Attributes(title: "", content: "", date: nil)
 		XCTAssertThrowsError(try APIHandlerDefault().formatDate(note))
-	}
-	
-	func testNoteNilError() {
-		XCTAssertThrowsError(try APIHandlerDefault().formatDate(nil))
 	}
 	
 	func testCreateNote() {
@@ -84,7 +85,7 @@ class projetoRestIOSTests: XCTestCase {
 
 	}
 	
-	func testGetAll() {
+	func testGetAllNotNil() {
 		var json:[JsonObject]!
 		
 		apiHandler.getAllNotes { (jsonObjects) in
