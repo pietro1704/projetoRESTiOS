@@ -18,7 +18,12 @@ class AdicionarNotaViewController: UIViewController {
 		super.viewDidLoad()
 		titleTextField.delegate = self
 		contentTextField.delegate = self
-		
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		titleTextField.text = nil
+		contentTextField.text = nil
 	}
 	
 	@IBAction func adicionarTapped(_ sender: Any) {
